@@ -20,12 +20,12 @@
     "@component-controls/gatsby-theme-stories": "^1.36.7",
     "@component-controls/viewport-plugin": "^1.36.7",
     "@theme-ui/presets": "^0.4.0-rc.1",
-    "gatsby": "^2.22.10",
+    "gatsby": "^2.24.53",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "typescript": "^3.9.3",
+    "typescript": "^4.0.5",
     "webpack-bundle-analyzer": "^3.7.0"
   }
 }
