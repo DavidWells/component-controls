@@ -43,14 +43,7 @@ export const react: PresetType = (options: BuildProps) => {
               options: {
                 presets: [
                   ['@babel/preset-env', { modules: 'commonjs' }],
-                  [
-                    '@babel/preset-react',
-                    {
-                      throwIfNamespace: false, // defaults to true
-                      runtime: "automatic", // defaults to classic
-                      importSource: "theme-ui" // defaults to react
-                    },
-                  ],
+                  '@babel/preset-react',
                 ],
               },
             },
@@ -75,14 +68,7 @@ export const react: PresetType = (options: BuildProps) => {
           options: {
             presets: [
               ['@babel/preset-env', { modules: 'commonjs' }],
-              [
-                '@babel/preset-react',
-                {
-                  throwIfNamespace: false, // defaults to true
-                  runtime: "automatic", // defaults to classic
-                  importSource: "theme-ui" // defaults to react
-                },
-              ],
+              '@babel/preset-react',
             ],
           },
         },
