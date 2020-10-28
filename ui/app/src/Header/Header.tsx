@@ -100,7 +100,7 @@ export const Header: FC<HeaderProps> = ({ toolbar = {} }) => {
           node: page.label,
         }));
       if (pageItems.length) {
-        Array.prototype.push.apply(actions, pageItems);
+        Array.prototype.push(...pageItems);
       } else {
         actions[0].node = (
           <LogoLink>

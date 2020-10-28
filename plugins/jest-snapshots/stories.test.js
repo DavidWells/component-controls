@@ -22,7 +22,6 @@ Object.keys(store.docs).forEach(docId => {
     describe(doc.title, () => {
       beforeAll(() => {
         jest.mock('rc-util/lib/Portal');
-        //@ts-ignore
         global.MutationObserver = class {
           constructor() {}
           disconnect() {}
