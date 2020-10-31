@@ -1,5 +1,5 @@
 import path from 'path';
-import { RuleSetLoader } from 'webpack';
+import { RuleSetUseItem, WebpackPluginInstance } from 'webpack';
 import ExtractCssPlugin from 'extract-css-chunks-webpack-plugin';
 import OptimizeCssAssetsWebpackPlugin from 'optimize-css-assets-webpack-plugin';
 
@@ -13,7 +13,7 @@ import { findUpFile } from '@component-controls/instrument';
 
 export const react: PresetType = (options: BuildProps) => {
   const isProd = process.env.NODE_ENV === 'production';
-  const cssLoaders: RuleSetLoader[] = [];
+  const cssLoaders: RuleSetUseItem[] = [];
   const postcssOptions = customLoaderOptions(options, 'postcss-loader', {});
   const hasPostCss =
     Object.keys(postcssOptions).length ||
@@ -164,14 +164,15 @@ export const react: PresetType = (options: BuildProps) => {
     },
   };
   if (isProd) {
+    const optimizeCss: WebpackPluginInstance = new (OptimizeCssAssetsWebpackPlugin as any)(
+      {
+        cssProcessorOptions: {
+          discardComments: { removeAll: true },
+        },
+      },
+    );
     result.optimization = {
-      minimizer: [
-        new OptimizeCssAssetsWebpackPlugin({
-          cssProcessorOptions: {
-            discardComments: { removeAll: true },
-          },
-        }),
-      ],
+      minimizer: [optimizeCss],
     };
   }
   return result;
